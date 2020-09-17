@@ -1,0 +1,17 @@
+nav {
+    background: #3f3f3f;
+    color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+nav .logo {
+    font-weight: bold;
+}
+
+nav a {
+    color: whitesmoke;
+    margin-left: 20px;
+    text-decoration: none;
+}
