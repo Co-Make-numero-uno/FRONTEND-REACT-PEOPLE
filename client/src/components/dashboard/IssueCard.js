@@ -3,7 +3,6 @@ import {useHistory} from 'react-router-dom'
 
 
 const IssueCard = (props) => {
-    console.log(props.issue.id)
 
     const {push} = useHistory()
     const clickIssue = (issue) => {

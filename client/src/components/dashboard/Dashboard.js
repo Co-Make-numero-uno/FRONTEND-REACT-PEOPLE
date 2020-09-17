@@ -17,24 +17,24 @@ const dummyData = [{
     id: "2"
 },
 {
-    name: "Low Water Pressure",
+    name: "High Water Pressure",
     city: "Hammond",
     state: "IN",
-    description: "3336 165th Street",
+    description: "3308 Kenwood Street",
     id: "3"
 },
 {
-    name: "Low Water Pressure",
+    name: "Gas Leak",
     city: "Hammond",
     state: "IN",
-    description: "3336 165th Street",
+    description: "3119 Crane Place",
     id: "4"
 },
 {
-    name: "Low Water Pressure",
+    name: "Dead Animal",
     city: "Hammond",
     state: "IN",
-    description: "3336 165th Street",
+    description: "777 Casino Center Drive",
     id: "5"
 }]
 
