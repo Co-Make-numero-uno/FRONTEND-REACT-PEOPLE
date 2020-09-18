@@ -12,6 +12,12 @@ const Dashboard = props => {
 
     return (
         <div className="dashboard">
+            {props.loading &&
+                <p>Loading...</p>
+            }
+            {!props.loading && props.error.message &&
+                <p>{props.error.message}</p>
+            }
             {props.issues.map(issue=><IssueCard key={issue.id} issue={issue}/>)}
         </div>
     );
