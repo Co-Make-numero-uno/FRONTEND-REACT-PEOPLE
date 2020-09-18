@@ -12,7 +12,7 @@ const IssueCard = (props) => {
 
     return (
         <div className="card" onClick={() => clickIssue(props.issue.id)}>
-            <h2>{props.issue.name}</h2>
+            <h2>{props.issue.title}</h2>
             <p>Location: {props.issue.city}, {props.issue.state}</p>
             <p>Description: {props.issue.description}</p>
         </div>
