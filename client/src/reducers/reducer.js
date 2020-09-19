@@ -1,4 +1,5 @@
 import {GET_ISSUES_START, GET_ISSUES_SUCCESS, GET_ISSUES_FAIL} from '../actions/DashboardAction';
+import {SET_ISSUE} from '../actions/EditIssueAction'
 
 const initialState = {
     issues: [],
@@ -35,6 +36,8 @@ export default function reducer(state = initialState, action){
                 loading: false,
                 error: action.payload
             }
+        case SET_ISSUE:
+            return {...state, issue: action.payload}
         default:
             return state;
     }
