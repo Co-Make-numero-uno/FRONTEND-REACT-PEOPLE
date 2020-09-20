@@ -5,7 +5,6 @@ import {setIssue} from '../../actions/EditIssueAction'
 
 
 const IssueCard = (props) => {
-    console.log("IssueCard: ", props)
 
     const {push} = useHistory()
     const clickIssue = (issueID) => {

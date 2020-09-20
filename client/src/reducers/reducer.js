@@ -51,10 +51,7 @@ export default function reducer(state = initialState, action){
                 }
             }
         case EDIT_ISSUE_SUCCESS:
-            return {
-                ...state,
-                issues: action.payload,
-                loading: false,
+            return {...state, issues: [...state.issues, action.payload], loading: false,
             }
         case EDIT_ISSUE_FAIL:
             return {

@@ -6,26 +6,20 @@ import {connect} from 'react-redux'
 import {setIssue, editIssue} from '../../actions/EditIssueAction'
 
 const EditIssue = (props) => {
-    // const config = {headers: {'Access-Control-Allow-Origin': '*'}};
+    const {id} = useParams();
+    const {push} = useHistory();
     const [edit, setEdit] = React.useState(props.issue)
+
+    const handleEdit = () => {
+        props.editIssue(edit);
+        push(`/dashboard`)
+    }
 
     const changeHandler = (e) => {
         setEdit({...edit, [e.target.name]: e.target.value});
-        console.log(edit)
     }
 
-    const {id} = useParams();
-    const {push} = useHistory();
-
-    // const putIssue = (e) =>{
-    //     e.preventDefault();
-    //     axios.put(`https://co-make-back-end.herokuapp.com/issues/${id}`, edit)
-    //         .then(res=>{
-    //             console.log("Put Success: ", res);
-    //             push("/dashboard")
-    //         })
-    //         .catch(err=>{console.log("Put Error: ", err)})
-    // }
+    
 
     return (
         <div>
@@ -35,7 +29,6 @@ const EditIssue = (props) => {
             {!props.loading && props.error.message &&
                 <p>{props.error.message}</p>
             }
-            {!props.loading &&
             <div>
             <h2>Edit Issue</h2>
             <form>
@@ -44,8 +37,8 @@ const EditIssue = (props) => {
                 <input type="text" name="state" placeholder="State" value={edit.state} onChange={changeHandler}></input>
                 <input type="text" name="description" placeholder="Description" value={edit.description} onChange={changeHandler}></input>
             </form>
-            <button onClick={()=> props.editIssue(edit)}>Submit Edit</button>
-            </div>}
+            <button onClick={()=> {handleEdit()}}>Submit Edit</button>
+            </div>
         </div>
     );
 };

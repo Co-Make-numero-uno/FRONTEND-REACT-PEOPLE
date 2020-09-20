@@ -11,12 +11,16 @@ export const setIssue = (action) => {
 }
 
 export const editIssue = (action) => (dispatch) =>{
-    console.log("editIssue ran: ", action.id)
+    console.log("editIssue ran: ", action)
     dispatch({type: EDIT_ISSUE_START});
-    axios.put(`https://co-make-back-end.herokuapp.com/issues/${action.id}`).then(res=>{
-        dispatch({type: EDIT_ISSUE_SUCCESS, payload: res.data});
-    }).catch(err=>{
-        const errMessage = err.response.data.message;
-        dispatch({type: EDIT_ISSUE_FAIL, payload: {message: errMessage, err: err.response}});
+    axios.put(`https://co-make-back-end.herokuapp.com/issues/${action.id}`, action)
+        .then(res=>{
+            console.log("Put Response: ", res.data.updatedIssue);
+            dispatch({type: EDIT_ISSUE_SUCCESS, payload: res.data.updatedIssue});
+        })
+        .catch(err=>{
+            console.log(err.response.data.message);
+            const errMessage = err.response.data.message;
+            dispatch({type: EDIT_ISSUE_FAIL, payload: {message: errMessage, err: err.response}});
     });
 }
