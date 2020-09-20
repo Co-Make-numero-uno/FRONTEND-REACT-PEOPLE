@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import {connect} from "react-redux";
+import {newIssue} from "../../actions/PostIssueAction";
 
 import './postIssue.css';
 
-const PostIssue = () => {
+const PostIssue = props => {
     const initialFormState = {
         title: '',
         description: '',
@@ -20,7 +22,7 @@ const PostIssue = () => {
 
     const createIssue = e => {
         e.preventDefault();
-        console.log(formState);
+        props.newIssue(formState);
     }
 
     return (
@@ -55,4 +57,11 @@ const PostIssue = () => {
     );
 };
 
-export default PostIssue;
+const mapStateToProps = state =>{
+    return {
+        loading: state.loading,
+        error: state.error
+    }
+}
+
+export default connect(mapStateToProps, {newIssue})(PostIssue);
