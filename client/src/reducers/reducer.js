@@ -51,7 +51,10 @@ export default function reducer(state = initialState, action){
                 }
             }
         case EDIT_ISSUE_SUCCESS:
-            return {...state, issues: [...state.issues, action.payload], loading: false,
+            const filter = state.issues.map((filtered) => 
+                {if (filtered.id === action.payload.id){return action.payload} else {return filtered}}
+                );
+            return {...state, issues: filter, loading: false,
             }
         case EDIT_ISSUE_FAIL:
             return {
