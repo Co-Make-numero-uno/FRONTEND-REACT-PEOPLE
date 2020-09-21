@@ -1,8 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from "react-redux";
+import {useHistory} from "react-router-dom";
 import {newIssue} from "../../actions/PostIssueAction";
 
 import './postIssue.css';
+
+let initialRender = true;
 
 const PostIssue = props => {
     const initialFormState = {
@@ -11,6 +14,7 @@ const PostIssue = props => {
         state: '',
         city: ''
     }
+    const {push}  = useHistory();
     const [formState, setFormState] = useState(initialFormState);
     
     const updateFormData = e =>{
@@ -24,6 +28,14 @@ const PostIssue = props => {
         e.preventDefault();
         props.newIssue(formState);
     }
+
+    useEffect(()=>{
+        if(!initialRender && !props.loading && !props.error.message){
+            //successful submission of new issue, redirect to dashboard
+            push("/dashboard");
+        }
+        initialRender = false;
+    }, [props.loading, props.error])
 
     return (
         <main className='new-issue'>
