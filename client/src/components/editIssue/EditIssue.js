@@ -2,32 +2,55 @@ import React from 'react';
 import axios from 'axios';
 import {useParams, useHistory} from 'react-router-dom'
 import './EditIssue.css'
+import {connect} from 'react-redux'
+import {setIssue, editIssue} from '../../actions/EditIssueAction'
 
-const EditIssue = () => {
+const EditIssue = (props) => {
     const {id} = useParams();
     const {push} = useHistory();
+    const [edit, setEdit] = React.useState(props.issue)
 
-    const putIssue = (e) =>{
-        e.preventDefault();
-        axios.put(`http://${id}`)
-            .then(res=>{
-                console.log("Put Success: ", res);
-            })
-            .catch(err=>{console.log("Put Error: ", err)})
+    const handleEdit = () => {
+        props.editIssue(edit);
+        push(`/dashboard`)
     }
+
+    const changeHandler = (e) => {
+        setEdit({...edit, [e.target.name]: e.target.value});
+    }
+
+    
 
     return (
         <div>
+            {props.loading &&
+                <p>Loading...</p>
+            }
+            {!props.loading && props.error.message &&
+                <p>{props.error.message}</p>
+            }
+            <div>
             <h2>Edit Issue</h2>
             <form>
-                <input type="text" placeholder="Name"></input>
-                <input type="text" placeholder="City"></input>
-                <input type="text" placeholder="State"></input>
-                <input type="text" placeholder="Description"></input>
+                <input type="text" name="title" placeholder="Name" value={edit.title} onChange={changeHandler}></input>
+                <input type="text" name="city" placeholder="City" value={edit.city} onChange={changeHandler}></input>
+                <input type="text" name="state" placeholder="State" value={edit.state} onChange={changeHandler}></input>
+                <input type="text" name="description" placeholder="Description" value={edit.description} onChange={changeHandler}></input>
             </form>
-            <button onClick={putIssue}>Submit Edit</button>
+            <button onClick={()=> {handleEdit()}}>Submit Edit</button>
+            </div>
         </div>
     );
 };
 
-export default EditIssue;
+const mapStateToProps = (state) =>{
+    return {
+        issue: state.issue,
+        loading: state.loading,
+        error: state.error
+    }
+}
+
+const mapDispatchToProps = {setIssue, editIssue}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditIssue);

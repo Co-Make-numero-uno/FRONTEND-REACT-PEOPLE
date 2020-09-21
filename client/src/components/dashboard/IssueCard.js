@@ -1,17 +1,21 @@
 import React from 'react';
-import {useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {setIssue} from '../../actions/EditIssueAction'
 
 
 const IssueCard = (props) => {
 
     const {push} = useHistory()
-    const clickIssue = (issue) => {
-        push(`/issue/${issue}`);
-        console.log(issue)
+    const clickIssue = (issueID) => {
+        props.setIssue(issueID)
+        push(`/issue/${issueID.id}`);
+        console.log(issueID);
+        
     }
 
     return (
-        <div className="card" onClick={() => clickIssue(props.issue.id)}>
+        <div className="card" onClick={() => clickIssue(props.issue)}>
             <h2>{props.issue.title}</h2>
             <p>Location: {props.issue.city}, {props.issue.state}</p>
             <p>Description: {props.issue.description}</p>
@@ -19,4 +23,12 @@ const IssueCard = (props) => {
     );
 };
 
-export default IssueCard;
+const mapStateToProps = (state) =>{
+    return {
+        issues: state.issues,
+        loading: state.loading,
+        error: state.error
+    }
+}
+
+export default connect(mapStateToProps, {setIssue})(IssueCard)
