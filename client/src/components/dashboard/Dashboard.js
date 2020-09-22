@@ -18,7 +18,7 @@ const Dashboard = props => {
                         <p>Loading...</p>
                     }
                     {!props.loading && props.error.message &&
-                        <div>{props.error.message}</div>
+                        <div>Error: {props.error.message}</div>
                     }
                 <div className="dashboard">{props.issues.map(issue=><IssueCard key={issue.id} issue={issue}/>)}</div>
             </div>

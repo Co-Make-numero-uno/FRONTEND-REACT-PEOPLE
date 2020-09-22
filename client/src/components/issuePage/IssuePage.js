@@ -29,7 +29,7 @@ const IssuePage = (props) => {
 
 
     return (
-        <div className="card">
+        <div className="card singlecard">
             <h2>{props.issue.title}</h2>
             <p>Location: {props.issue.city}, {props.issue.state}</p>
             <p>Description: {props.issue.description}</p>

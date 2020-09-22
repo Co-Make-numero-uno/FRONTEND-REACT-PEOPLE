@@ -15,6 +15,11 @@
     /* align-items: center; */
 }
 
+.singlecard{
+    position: relative;
+    left: 35%;
+}
+
 .dashcard {
     transition: all 0.2s ease-in;
     cursor: pointer;
