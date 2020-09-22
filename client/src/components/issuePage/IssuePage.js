@@ -33,8 +33,10 @@ const IssuePage = (props) => {
             <h2>{props.issue.title}</h2>
             <p>Location: {props.issue.city}, {props.issue.state}</p>
             <p>Description: {props.issue.description}</p>
-            <button onClick={() => editButton(id)}>Edit Issue</button>
-            <button onClick={() => deleteButton(props.issue.id)}>Delete Issue</button>
+            <div>
+                <button className="cardbutton" onClick={() => editButton(id)}>Edit Issue</button>
+                <button className="cardbutton" onClick={() => deleteButton(props.issue.id)}>Delete Issue</button>
+            </div>
         </div>
     );
 };
