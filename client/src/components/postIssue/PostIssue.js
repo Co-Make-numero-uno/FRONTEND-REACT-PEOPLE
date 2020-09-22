@@ -30,7 +30,7 @@ const PostIssue = props => {
     }
 
     useEffect(()=>{
-        if(!initialRender && !props.loading && !props.error.message){
+        if(!initialRender && !props.loading && (props.error.message === null)){
             //successful submission of new issue, redirect to dashboard
             push("/dashboard");
         }
@@ -64,6 +64,7 @@ const PostIssue = props => {
                 <div className='form-group'>
                     <button>Submit</button>
                 </div>
+                {props.error.message}
             </form>
         </main>
     );
