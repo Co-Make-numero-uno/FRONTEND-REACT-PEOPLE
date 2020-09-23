@@ -3,6 +3,7 @@ import axios from 'axios';
 import {connect} from 'react-redux'
 import {useParams, useHistory} from 'react-router-dom'
 import {getIssues} from '../../actions/DashboardAction'
+import Upvotes from './Upvotes';
 
 //deploy site
 //add upvotes
@@ -10,7 +11,6 @@ import {getIssues} from '../../actions/DashboardAction'
 
 
 const IssuePage = (props) => {
-
     const {id} = useParams()
     const {push} = useHistory()
 
@@ -31,6 +31,7 @@ const IssuePage = (props) => {
     return (
         <div className="card">
             <h2>{props.issue.title}</h2>
+            <Upvotes upvotes={props.issue.upvotes}/>
             <p>Location: {props.issue.city}, {props.issue.state}</p>
             <p>Description: {props.issue.description}</p>
             <button onClick={() => editButton(id)}>Edit Issue</button>
