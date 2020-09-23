@@ -71,3 +71,8 @@
     box-sizing: border-box;
     border-right: 1px solid dimgray;
 }
+
+
+.issue-row .col.sm {
+    flex: .5;
+}

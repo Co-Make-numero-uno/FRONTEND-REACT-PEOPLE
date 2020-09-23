@@ -25,16 +25,16 @@ const Dashboard = props => {
                         <div className="col">
                             Title
                         </div>
-                        <div className="col">
+                        <div className="col sm">
                             State
                         </div>
                         <div className="col">
                             City
                         </div>
-                        <div className="col">
+                        <div className="col sm">
                             Upvotes
                         </div>
-                        <div className="col">
+                        <div className="col sm">
                             Link
                         </div>
                     </div>

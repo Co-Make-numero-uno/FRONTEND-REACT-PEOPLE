@@ -19,16 +19,16 @@ const IssueCard = (props) => {
             <div className="col">
                 <p>{props.issue.title}</p>
             </div>
-            <div className="col">
+            <div className="col sm">
                 <p>{props.issue.state}</p>
             </div>
             <div className="col">
                 <p>{props.issue.city}</p>
             </div>
-            <div className="col">
+            <div className="col sm">
                 {props.issue.upvotes}
             </div>
-            <div className="col">
+            <div className="col sm">
                 <button  onClick={() => clickIssue(props.issue)}>View Issue</button>
             </div>
         </div>
