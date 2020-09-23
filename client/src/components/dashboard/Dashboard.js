@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {getIssues} from '../../actions/DashboardAction';
 
-import IssueCard from './IssueCard'
+import IssueRow from './IssueRow'
 import './Dashboard.css'
 
 const Dashboard = props => {
@@ -20,7 +20,28 @@ const Dashboard = props => {
                     {!props.loading && props.error.message &&
                         <div>Error: {props.error.message}</div>
                     }
-                <div className="dashboard">{props.issues.map(issue=><IssueCard key={issue.id} issue={issue}/>)}</div>
+                <div className="dashboard">
+                    <div className="issue-row header">
+                        <div className="col">
+                            Title
+                        </div>
+                        <div className="col">
+                            State
+                        </div>
+                        <div className="col">
+                            City
+                        </div>
+                        <div className="col">
+                            Upvotes
+                        </div>
+                        <div className="col">
+                            Link
+                        </div>
+                    </div>
+                    {props.issues.map(issue=>
+                        <IssueRow key={issue.id} issue={issue}/>
+                    )}
+                </div>
             </div>
         </div>
     );

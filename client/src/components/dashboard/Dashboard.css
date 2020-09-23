@@ -31,13 +31,6 @@
     box-shadow: 5px 10px #D90429;
 }
 
-.dashboard {
-    display: flex;
-    flex-wrap: wrap;
-    /* justify-content: space-evenly; */
-    /* align-items: center; */
-    margin: 30px;
-}
 
 .description {
     font-style: italic;
@@ -45,4 +38,36 @@
 
 .header{
     color: #2B2D42;
+}
+
+.dashboard {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 4vh;
+}
+
+.issue-row {
+    display: flex;
+    justify-content: space-evenly;
+    background: whitesmoke;
+    border-bottom: 1px solid dimgray;
+}
+
+.issue-row.header {
+    background: #2B2D42;
+    color: whitesmoke;
+    padding: 1rem;
+}
+
+.issue-row.header .col {
+    border: none;
+}
+
+.issue-row .col {
+    text-align: left;
+    flex: 1;
+    padding: 0 2rem;
+    box-sizing: border-box;
+    border-right: 1px solid dimgray;
 }
