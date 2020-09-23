@@ -35,9 +35,9 @@ const EditIssue = (props) => {
                 <input type="text" name="title" placeholder="Name" value={edit.title} onChange={changeHandler}></input>
                 <input type="text" name="city" placeholder="City" value={edit.city} onChange={changeHandler}></input>
                 <input type="text" name="state" placeholder="State" value={edit.state} onChange={changeHandler}></input>
-                <input type="text" name="description" placeholder="Description" value={edit.description} onChange={changeHandler}></input>
+                <textarea type="text" name="description" placeholder="Description" value={edit.description} onChange={changeHandler}></textarea>
             </form>
-            <button onClick={()=> {handleEdit()}}>Submit Edit</button>
+            <button className="editbutton" onClick={()=> {handleEdit()}}>Submit Edit</button>
             </div>
         </div>
     );
