@@ -3,6 +3,7 @@ import './App.css';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 //COMPONENTS
+import Nav from './components/nav/Nav';
 import Login from './components/home/Login';
 import Signup from './components/home/Signup';
 import Dashboard from './components/dashboard/Dashboard';
@@ -14,6 +15,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <Nav/>
         <Switch>
           <Route exact path="/">
             <Login/>

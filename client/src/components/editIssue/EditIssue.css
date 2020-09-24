@@ -1,0 +1,46 @@
+@keyframes button {
+    from {background-color: white;}
+    to {background-color: #8D99AE;}
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-left: 38%;
+    width: 25%;
+    border: 2px solid black;
+    border-radius: 14px;
+    background: lightgray;
+}
+input {
+    margin: 10px;
+    align-items: center;
+}
+
+select{
+    margin: 10px;
+    padding: 1px 2px;
+}
+
+textarea {
+    padding: 1px 2px;
+    margin: 10px;
+    height: 200px;
+}
+
+button {
+    border-radius: 30px;
+    margin: 15px;
+    width: 40%;
+    min-width: 55px;
+    cursor: pointer;
+}
+
+.cardbutton:hover {
+    animation: button 1s;
+    animation-fill-mode: forwards;
+}
+
+.editbutton {
+    width: 10%;
+}

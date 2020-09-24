@@ -1,0 +1,30 @@
+.new-issue form {
+    border: 1px solid darkgrey;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.new-issue .form-group {
+    display: flex;
+    align-items: flex-start;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-bottom: 4vh;
+}
+
+.new-issue .form-group label {
+    flex: 1;
+    text-align: left;
+}
+
+.new-issue .form-group textarea, .new-issue .form-group input {
+    resize: none;
+    font-family: inherit;
+    flex: 1.5;
+    max-width: 300px;
+}
+
+.new-issue form button {
+    text-align: left !important;
+}
