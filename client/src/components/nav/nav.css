@@ -4,6 +4,7 @@ nav {
     display: flex;
     justify-content: space-between;
     padding: 1rem;
+    width: 90%;
 }
 
 nav .logo {
@@ -14,4 +15,10 @@ nav a {
     color: whitesmoke;
     margin-left: 20px;
     text-decoration: none;
+}
+
+@media (max-width: 1000px){
+    nav {
+        width: 80%;
+    }
 }
