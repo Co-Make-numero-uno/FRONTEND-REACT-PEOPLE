@@ -1,21 +1,15 @@
-.dashcard {
-    transition: all 0.2s ease-in;
-    cursor: pointer;
-}
-
-.dashcard:hover{
-    color: #EF233C;
-    transform: scale(1.02);
-    box-shadow: 5px 10px #D90429;
-}
-
-
 .description {
     font-style: italic;
 }
 
-.header{
-    color: #2B2D42;
+.issues-header{
+    color: white;
+    background: #2B2D42;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 4vh;
+    margin-top: 4vh;
 }
 
 .dashboard {
@@ -82,7 +76,7 @@
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 750px) {
     .issue-row {
         display: flex;
         flex-direction: column;
@@ -103,5 +97,8 @@
     }
     .issue-row .col {
         border: none;
+    }
+    .issues-header{
+        width: 80%;
     }
 }

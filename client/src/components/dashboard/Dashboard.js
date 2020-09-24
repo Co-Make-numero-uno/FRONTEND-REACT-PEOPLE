@@ -12,7 +12,7 @@ const Dashboard = props => {
 
     return (
         <div>
-            <h2 className="header">Current Issues:</h2>
+            <h2 className="issues-header">Current Issues:</h2>
             <div className="dashboard">
                     {props.loading &&
                         <p>Loading...</p>
