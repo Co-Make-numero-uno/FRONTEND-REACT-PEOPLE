@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import axios from '../../axiosWithAuth';
 import {connect} from 'react-redux'
 import {useParams, useHistory} from 'react-router-dom'
 import {getIssues} from '../../actions/DashboardAction'
@@ -19,7 +19,7 @@ const IssuePage = (props) => {
     }
 
     const deleteButton = (issue) => {
-        axios.delete(`https://co-make-back-end.herokuapp.com/issues/${issue}`)
+        axios().delete(`https://co-make-back-end.herokuapp.com/issues/${issue}`)
         .then(res=>{
             console.log("delete ran: ", res); 
             push("/dashboard");

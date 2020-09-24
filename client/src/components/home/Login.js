@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {useHistory} from "react-router-dom";
 import * as Yup from "yup";
 import axios from "axios";
 
@@ -11,6 +12,8 @@ export default function Form({users, setUsers}) {
         password: "",
         terms: false 
     }
+
+    const {push} = useHistory();
 
     const [formState, setFormState] = useState(defaultState);
     const [errors, setErrors] = useState({ ...defaultState, terms: "" });
@@ -33,6 +36,11 @@ export default function Form({users, setUsers}) {
           .boolean()
           .oneOf([true], "Please agree to the terms and conditions")
       });
+
+
+      useEffect(()=> {
+        if(localStorage.getItem("token")) push("/dashboard");
+      }, [])
 
       useEffect(() => {
     //    one way is 
@@ -58,8 +66,8 @@ export default function Form({users, setUsers}) {
             .post("https://co-make-back-end.herokuapp.com/users/login", formState)
             .then(res => {
                 console.log("form submitted success", res)
-                //I set setUser here so it can retrieve the user data to the DOM
-                setUsers(res.data);
+                localStorage.setItem("token", res.data.token);
+                push("/dashboard");
                 //this one is to add all the user 
                 // setUsers([...users, formState]);
                 console.log("success", users)

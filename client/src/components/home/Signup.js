@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {useHistory} from "react-router-dom";
 import * as Yup from "yup";
 import axios from "axios";
 export default function Form({users, setUsers}) {
@@ -11,6 +12,8 @@ export default function Form({users, setUsers}) {
         city: "",
         state: ""
     }
+
+    const {push} = useHistory();
 
     const [formState, setFormState] = useState(defaultState);
     const [errors, setErrors] = useState({ ...defaultState, terms: "" });
@@ -35,6 +38,11 @@ export default function Form({users, setUsers}) {
           .boolean()
           .oneOf([true], "Please agree to the terms and conditions")
       });
+
+
+      useEffect(()=> {
+        if(localStorage.getItem("token")) push("/dashboard");
+      }, [])
 
       useEffect(() => {
     //    one way is 
