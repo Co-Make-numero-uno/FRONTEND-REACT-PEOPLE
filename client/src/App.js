@@ -10,6 +10,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import PostIssue from './components/postIssue/PostIssue';
 import IssuePage from './components/issuePage/IssuePage';
 import EditIssue from './components/editIssue/EditIssue';
+import ProtectedRoute from "./ProtectedRoute";
 
 function App() {
   return (
@@ -29,12 +30,8 @@ function App() {
           <Route exact path = '/issue/new'>
             <PostIssue/>
           </Route>
-          <Route exact path='/issue/:id'>
-            <IssuePage/>
-          </Route>
-          <Route path='/issue/:id/edit'>
-            <EditIssue/>
-          </Route>
+          <ProtectedRoute exact path='/issue/:id' component={IssuePage}/>
+          <ProtectedRoute path='/issue/:id/edit' component={EditIssue}/>
         </Switch>
       </Router>
     </div>

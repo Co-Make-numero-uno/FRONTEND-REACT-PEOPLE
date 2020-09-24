@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../axiosWithAuth';
 
 export const SET_ISSUE = "SET_ISSUE";
 export const EDIT_ISSUE_START = "EDIT_ISSUE_START";
@@ -13,7 +13,7 @@ export const setIssue = (action) => {
 export const editIssue = (action) => (dispatch) =>{
     console.log("editIssue ran: ", action)
     dispatch({type: EDIT_ISSUE_START});
-    axios.put(`https://co-make-back-end.herokuapp.com/issues/${action.id}`, action)
+    axios().put(`https://co-make-back-end.herokuapp.com/issues/${action.id}`, action)
         .then(res=>{
             console.log("Put Response: ", res.data.updatedIssue);
             dispatch({type: EDIT_ISSUE_SUCCESS, payload: res.data.updatedIssue});

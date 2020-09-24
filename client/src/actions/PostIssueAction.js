@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../axiosWithAuth';
 
 export const NEW_ISSUE_FAIL = "NEW_ISSUE_FAIL";
 export const NEW_ISSUE_SUCCESS = "NEW_ISSUE_SUCCESS";
@@ -6,7 +6,7 @@ export const NEW_ISSUE_START = "NEW_ISSUE_START";
 
 export const newIssue = (issue) => (dispatch) => {
     dispatch({type: NEW_ISSUE_START})
-    axios.post("https://co-make-back-end.herokuapp.com/issues/", issue)
+    axios().post("https://co-make-back-end.herokuapp.com/issues/", issue)
     .then((res)=>{
         console.log(res)
         dispatch({type: NEW_ISSUE_SUCCESS, payload: res.data})
