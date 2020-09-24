@@ -27,8 +27,10 @@ body,
 .App {
   font-family: 'Oswald', sans-serif;
   text-align: center;
-  background: linear-gradient(to top, white 0%, #2b2d42);
+  /* background: linear-gradient(to top, white 0%, #2b2d42); */
   padding: 32px;
+  background-image: url("https://images.unsplash.com/photo-1539035104074-dee66086b5e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjI0MX0&auto=format&fit=crop&w=1050&q=80");
+  background-size: 100% 100%;
 }
 
 
@@ -43,7 +45,8 @@ form {
   display: inline-flex;
   flex-flow: column nowrap;
   align-items: center;
-  background: #8d99ae;
+  /* background: #8d99ae; */
+  background-image: url("https://images.vexels.com/media/users/2049/70206/preview2/b0ff0ff2b99b382a90c25c2dce8bbcbf-grey-linen-texture-background.jpg");
   border-radius: 4px;
   padding: 10px;
   margin-bottom: 20px;
@@ -54,15 +57,26 @@ form {
 input, textarea {
   width: 200px;
   padding: 15px 22px;
-  background: white;
+  background: #FFFFFF;
   margin: 10px 5px;
   box-sizing: border-box;  
   border: none;
   border-radius: 4px;
 }
 
+input:hover {
+  background-color: #d90429;
+}
+
+label {
+  color: #0EA9F2;
+}
+
 h1 {
-  color: black;
+  color: #0EA9F2;
+  font-size: 50px;
+  margin-left: 50px;
+
 }
 
 button {
@@ -71,6 +85,8 @@ button {
   width: 20%;
   color: white;
   margin-top: 30px;
+  font-family: 'Oswald', sans-serif;
+  margin-left: 50px;
 }
 
 .email {
@@ -79,4 +95,33 @@ button {
 
 .city {
   margin-left: 35px;
+}
+
+#state {
+  width: 200px;
+  padding: 15px 22px;
+  background: #FFFFFF;
+  margin: 10px 5px;
+  box-sizing: border-box;  
+  border: none;
+  border-radius: 4px;
+  margin-left: 28px;
+}
+
+#state:hover {
+  background-color: #d90429;
+}
+
+h2 {
+  color: #0EA9F2;
+  margin-top: 30px;
+  margin-left: 50px;
+}
+
+a {
+  color: #d90429;
+}
+
+.terms {
+  margin-right: 45px;
 }

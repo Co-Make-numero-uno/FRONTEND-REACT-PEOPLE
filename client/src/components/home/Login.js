@@ -150,10 +150,10 @@ export default function Form({users, setUsers}) {
                 <input name="terms" type="checkbox" onChange={handleChange}/>
                 Terms of Service
             </label>
+            <h2>NOT A USER YET? SIGN UP <a href="/signup">HERE</a></h2>
             <button disabled={buttonDisabled}>SUBMIT</button>
             <pre>{JSON.stringify(users, null, 2)}</pre>
         </form>
-        
         </div>
         
     )
