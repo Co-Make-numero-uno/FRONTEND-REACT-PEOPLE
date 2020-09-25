@@ -3,6 +3,7 @@ import axios from '../../axiosWithAuth';
 import {connect} from 'react-redux'
 import {useParams, useHistory} from 'react-router-dom'
 import {getIssues} from '../../actions/DashboardAction'
+import {upvote} from "../../actions/UpvoteIssueAction";
 import Upvotes from './Upvotes';
 
 //deploy site
@@ -27,11 +28,14 @@ const IssuePage = (props) => {
         .catch(err=>{console.log(err)})
     }
 
+    const sendUpvote = (issue_id) =>{
+        props.upvote(props.issue.id);
+    }
 
     return (
         <div className="card singlecard">
             <h2>{props.issue.title}</h2>
-            <Upvotes upvotes={props.issue.upvotes}/>
+            <Upvotes sendUpvote={sendUpvote} upvotes={props.issue.upvotes}/>
             <p>Location: {props.issue.city}, {props.issue.state}</p>
             <p>Description: {props.issue.description}</p>
             <div>
@@ -52,4 +56,4 @@ const mapStateToProps = (state) =>{
 }
 
 
-export default connect(mapStateToProps, {getIssues})(IssuePage);
+export default connect(mapStateToProps, {getIssues, upvote})(IssuePage);

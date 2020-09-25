@@ -1,15 +1,16 @@
 import axios from "../axiosWithAuth";
 
-const UPVOTE_START = "UPVOTE_START";
-const UPVOTE_SUCCESS = "UPVOTE_SUCCESS";
-const UPVOTE_FAIL = "UPVOTE_FAIL";
+export const UPVOTE_START = "UPVOTE_START";
+export const UPVOTE_SUCCESS = "UPVOTE_SUCCESS";
+export const UPVOTE_FAIL = "UPVOTE_FAIL";
 
-export const upvote = (vote) = dispatch => {
+export const upvote = (issue_id) => dispatch => {
     dispatch({type: UPVOTE_START});
-    axios().post("upvoteurl").then(res=>{
-        dispatch({type: UPVOTE_SUCCESS});
+    axios().get(`https://co-make-back-end.herokuapp.com/issues/${issue_id}/upvote/vote`).then(res=>{
+        if(res.status === 201) dispatch({type: UPVOTE_SUCCESS});
     }).catch(err=>{
-        console.log(err);
-        dispatch({type: UPVOTE_FAIL});
+        console.log(err.response);
+        const errMessage = err.response.data.message;
+        dispatch({type: UPVOTE_FAIL, payload: {message: errMessage, err: err.response}});
     })
 }
