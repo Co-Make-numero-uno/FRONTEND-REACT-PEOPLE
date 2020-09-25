@@ -28,14 +28,14 @@ const IssuePage = (props) => {
         .catch(err=>{console.log(err)})
     }
 
-    const sendUpvote = (issue_id) =>{
+    const sendUpvote = () =>{
         props.upvote(props.issue.id);
     }
 
     return (
         <div className="card singlecard">
             <h2>{props.issue.title}</h2>
-            <Upvotes sendUpvote={sendUpvote} upvotes={props.issue.upvotes}/>
+            <Upvotes sendUpvote={sendUpvote} votes={props.issue.votes}/>
             <p>Location: {props.issue.city}, {props.issue.state}</p>
             <p>Description: {props.issue.description}</p>
             <div>

@@ -26,7 +26,7 @@ const IssueCard = (props) => {
                 <p>{props.issue.city}</p>
             </div>
             <div className="col sm">
-                {props.issue.upvotes}
+                {props.issue.votes}
             </div>
             <div className="media-small">
                 <p>Location: {props.issue.city}, {props.issue.state}</p>

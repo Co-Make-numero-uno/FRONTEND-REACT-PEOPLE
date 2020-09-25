@@ -93,7 +93,7 @@ export default function reducer(state = initialState, action){
                 ...state,
                 issue: {
                     ...state.issue,
-                    upvotes: state.issue.upvotes + 1
+                    votes: state.issue.votes + 1
                 }
             }
         default:
