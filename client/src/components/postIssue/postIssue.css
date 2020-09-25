@@ -1,7 +1,13 @@
+.new-issue {
+    padding-bottom: 4vh;
+}
+
 .new-issue form {
     border: 1px solid darkgrey;
+    width: 80%;
     max-width: 800px;
     margin: 0 auto;
+    margin-top: 4vh;
     padding: 2rem;
 }
 
