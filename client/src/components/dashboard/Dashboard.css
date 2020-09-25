@@ -1,43 +1,15 @@
-.card {
-    border: 2px solid black;
-    border-radius: 14px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 10px;
-    width: 25%;
-    min-height: 500px;
-    padding: 1%;
-    background: #EDF2F4;
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* justify-content: space-evenly; */
-    /* align-items: center; */
-}
-
-.singlecard{
-    position: relative;
-    left: 35%;
-}
-
-.dashcard {
-    transition: all 0.2s ease-in;
-    cursor: pointer;
-}
-
-.dashcard:hover{
-    color: #EF233C;
-    transform: scale(1.02);
-    box-shadow: 5px 10px #D90429;
-}
-
-
 .description {
     font-style: italic;
 }
 
-.header{
-    color: #2B2D42;
+.issues-header{
+    color: white;
+    background: #2B2D42;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 4vh;
+    margin-top: 4vh;
 }
 
 .dashboard {
@@ -75,4 +47,58 @@
 
 .issue-row .col.sm {
     flex: .5;
+}
+
+.media-small {
+    display: none;
+}
+
+.card {
+    border: 2px solid black;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+    width: 80%;
+    min-height: 500px;
+    padding: 1%;
+    background: #EDF2F4;
+    text-align: center;
+}
+    
+
+@media (min-width: 1000px) {
+    .card {
+        width: 50%;
+        position: relative;
+        left: 20%;
+    }
+}
+
+@media (max-width: 750px) {
+    .issue-row {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .issue-row.header {
+        display: none;
+    }
+    .media-large {
+        display: none;
+    }
+    .media-small {
+        display: inline
+    }
+    .issue-button {
+        align-items: center;
+    }
+    .issue-row .col {
+        border: none;
+    }
+    .issues-header{
+        width: 80%;
+    }
 }
