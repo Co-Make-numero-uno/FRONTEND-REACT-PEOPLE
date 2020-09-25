@@ -2,6 +2,7 @@ import {GET_ISSUES_START, GET_ISSUES_SUCCESS, GET_ISSUES_FAIL} from '../actions/
 import {NEW_ISSUE_START, NEW_ISSUE_SUCCESS, NEW_ISSUE_FAIL} from '../actions/PostIssueAction';
 import {SET_ISSUE} from '../actions/EditIssueAction'
 import {EDIT_ISSUE_FAIL, EDIT_ISSUE_START, EDIT_ISSUE_SUCCESS} from '../actions/EditIssueAction'
+import {UPVOTE_SUCCESS} from "../actions/UpvoteIssueAction";
 
 const initialState = {
     issues: [],
@@ -85,6 +86,14 @@ export default function reducer(state = initialState, action){
                 error: {
                     message: null,
                     err: null
+                }
+            }
+        case UPVOTE_SUCCESS:
+            return {
+                ...state,
+                issue: {
+                    ...state.issue,
+                    upvotes: state.issue.upvotes + 1
                 }
             }
         default:
