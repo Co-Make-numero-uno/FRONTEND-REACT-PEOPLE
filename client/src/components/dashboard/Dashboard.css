@@ -16,7 +16,7 @@
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    margin-bottom: 4vh;
+    padding-bottom: 4vh;
 }
 
 .issue-row {
@@ -59,21 +59,18 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 10px;
-    width: 80%;
     min-height: 500px;
     padding: 1%;
     background: #EDF2F4;
     text-align: center;
+    width: 95%;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 4vh;
 }
-    
 
-@media (min-width: 1000px) {
-    .card {
-        width: 50%;
-        position: relative;
-        left: 20%;
-    }
+.card h2 {
+    margin-left: 0;
 }
 
 @media (max-width: 750px) {

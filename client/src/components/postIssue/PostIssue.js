@@ -39,12 +39,12 @@ const PostIssue = props => {
 
     return (
         <main className='new-issue'>
-            <h1>Post Your Issue</h1>
-            <p>
-                Let your voice be heard! Give us details about an issue harming your community
-                and gain support to see real change.
-            </p>
             <form onSubmit={createIssue}>
+                <h1>Post Your Issue</h1>
+                <p>
+                    Let your voice be heard! Give us details about an issue harming your community
+                    and gain support to see real change.
+                </p>
                 <div className='form-group'>
                     <label>Title: </label>
                     <input onChange={updateFormData} value={formState.title} type='text' name='title'/>
