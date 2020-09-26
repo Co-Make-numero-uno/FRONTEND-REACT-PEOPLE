@@ -12,6 +12,7 @@ const Nav = () => {
             <div>
                 <NavLink to="/">Login</NavLink>
                 <NavLink to="/signup">Signup</NavLink>
+                <NavLink to='/issue/new'>New Post</NavLink>
             </div>
         </nav>
     );
