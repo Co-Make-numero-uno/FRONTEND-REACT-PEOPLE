@@ -6,7 +6,9 @@ import "./nav.css";
 const Nav = () => {
     return (
         <nav>
-            <span className='logo'>Co-Make</span>
+            <NavLink to="/dashboard">
+                <span className='logo'>Co-Make</span>
+            </NavLink>
             <div>
                 <NavLink to="/">Login</NavLink>
                 <NavLink to="/signup">Signup</NavLink>
