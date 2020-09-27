@@ -5,9 +5,8 @@ import {newIssue} from "../../actions/PostIssueAction";
 
 import './postIssue.css';
 
-let initialRender = true;
-
 const PostIssue = props => {
+    let initialRender = true;
     const initialFormState = {
         title: '',
         description: '',
